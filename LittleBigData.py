@@ -352,20 +352,20 @@ def DeepDiscovery(Xval, Yval, classnames, n, modeldir = None, mname = None,
     
     if net == '3FCN':
         print('3-Hidden Layer Fully Connected Network Selected')
-        network = input_data(shape = [None, Xtrain.shape[1], Xtrain.shape[2], Xtrain.shape[3]])
+        network = input_data(shape = [None, Xval.shape[1], Xval.shape[2], Xval.shape[3]])
         network = fully_connected(network, 2000, activation='tanh')
         network = dropout(network, 0.5)
         network = fully_connected(network, 2000, activation='tanh')
         network = dropout(network, 0.5)
         network = fully_connected(network, 2000, activation='tanh')
         network = dropout(network, 0.5)
-        network = fully_connected(network, Ytrain.shape[1], activation='softmax')
+        network = fully_connected(network, Yval.shape[1], activation='softmax')
         network = regression(network, optimizer='momentum',
                              loss='categorical_crossentropy',
                              learning_rate=0.001)
     if net == '5FCN':
         print('5-Hidden Layer Fully Connected Network Selected')
-        network = input_data(shape = [None, Xtrain.shape[1], Xtrain.shape[2], Xtrain.shape[3]])
+        network = input_data(shape = [None, Xval.shape[1], Xval.shape[2], Xval.shape[3]])
         network = fully_connected(network, 2000, activation='tanh')
         network = dropout(network, 0.5)
         network = fully_connected(network, 2000, activation='tanh')
@@ -376,14 +376,14 @@ def DeepDiscovery(Xval, Yval, classnames, n, modeldir = None, mname = None,
         network = dropout(network, 0.5)
         network = fully_connected(network, 2000, activation='tanh')
         network = dropout(network, 0.5)
-        network = fully_connected(network, Ytrain.shape[1], activation='softmax')
+        network = fully_connected(network, Yval.shape[1], activation='softmax')
         network = regression(network, optimizer='momentum',
                              loss='categorical_crossentropy',
                              learning_rate=0.001)
         
     if net == 'AlexNet':
         print('AlexNet selected')
-        network = input_data(shape = [None, Xtrain.shape[1], Xtrain.shape[2], Xtrain.shape[3]])
+        network = input_data(shape = [None, Xval.shape[1], Xval.shape[2], Xval.shape[3]])
         network = conv_2d(network, 96, 11, strides=4, activation='relu')
         network = max_pool_2d(network, 3, strides=2)
         network = local_response_normalization(network)
@@ -399,7 +399,7 @@ def DeepDiscovery(Xval, Yval, classnames, n, modeldir = None, mname = None,
         network = dropout(network, 0.5)
         network = fully_connected(network, 4096, activation='tanh')
         network = dropout(network, 0.5)
-        network = fully_connected(network, Ytrain.shape[1], activation='softmax')
+        network = fully_connected(network, Yval.shape[1], activation='softmax')
         network = regression(network, optimizer='momentum',
                              loss='categorical_crossentropy',
                              learning_rate=0.001)
@@ -564,20 +564,20 @@ def GestaltDL(Xval, Yval, valnames, classnames, n, perc,  Xtest = None, Ytest = 
     
     if net == '3FCN':
         print('3-Hidden Layer Fully Connected Network Selected')
-        network = input_data(shape = [None, Xtrain.shape[1], Xtrain.shape[2], Xtrain.shape[3]])
+        network = input_data(shape = [None, Xval.shape[1], Xval.shape[2], Xval.shape[3]])
         network = fully_connected(network, 2000, activation='tanh')
         network = dropout(network, 0.5)
         network = fully_connected(network, 2000, activation='tanh')
         network = dropout(network, 0.5)
         network = fully_connected(network, 2000, activation='tanh')
         network = dropout(network, 0.5)
-        network = fully_connected(network, Ytrain.shape[1], activation='softmax')
+        network = fully_connected(network, Yval.shape[1], activation='softmax')
         network = regression(network, optimizer='momentum',
                              loss='categorical_crossentropy',
                              learning_rate=0.001)
     if net == '5FCN':
         print('5-Hidden Layer Fully Connected Network Selected')
-        network = input_data(shape = [None, Xtrain.shape[1], Xtrain.shape[2], Xtrain.shape[3]])
+        network = input_data(shape = [None, Xval.shape[1], Xval.shape[2], Xval.shape[3]])
         network = fully_connected(network, 2000, activation='tanh')
         network = dropout(network, 0.5)
         network = fully_connected(network, 2000, activation='tanh')
@@ -588,14 +588,14 @@ def GestaltDL(Xval, Yval, valnames, classnames, n, perc,  Xtest = None, Ytest = 
         network = dropout(network, 0.5)
         network = fully_connected(network, 2000, activation='tanh')
         network = dropout(network, 0.5)
-        network = fully_connected(network, Ytrain.shape[1], activation='softmax')
+        network = fully_connected(network, Yval.shape[1], activation='softmax')
         network = regression(network, optimizer='momentum',
                              loss='categorical_crossentropy',
                              learning_rate=0.001)
         
     if net == 'AlexNet':
         print('AlexNet selected')
-        network = input_data(shape = [None, Xtrain.shape[1], Xtrain.shape[2], Xtrain.shape[3]])
+        network = input_data(shape = [None, Xval.shape[1], Xval.shape[2], Xval.shape[3]])
         network = conv_2d(network, 96, 11, strides=4, activation='relu')
         network = max_pool_2d(network, 3, strides=2)
         network = local_response_normalization(network)
@@ -611,7 +611,7 @@ def GestaltDL(Xval, Yval, valnames, classnames, n, perc,  Xtest = None, Ytest = 
         network = dropout(network, 0.5)
         network = fully_connected(network, 4096, activation='tanh')
         network = dropout(network, 0.5)
-        network = fully_connected(network, Ytrain.shape[1], activation='softmax')
+        network = fully_connected(network, Yval.shape[1], activation='softmax')
         network = regression(network, optimizer='momentum',
                              loss='categorical_crossentropy',
                              learning_rate=0.001)
